@@ -9,13 +9,19 @@ interface CounterProps {
 
 export default function Counter(props: CounterProps) {
   const [count, setCount] = useState(props.start);
+  const plus = () => {
+    setCount((count) => count + 1);
+  }
+  const minus = () => {
+    setCount((count) => count - 1);
+  }
   return (
     <div>
       <p>{count}</p>
-      <button onClick={() => setCount(count - 1)} disabled={!IS_BROWSER}>
+      <button onClick={minus} disabled={!IS_BROWSER}>
         -1
       </button>
-      <button onClick={() => setCount(count + 1)} disabled={!IS_BROWSER}>
+      <button onClick={plus} disabled={!IS_BROWSER}>
         +1
       </button>
     </div>
